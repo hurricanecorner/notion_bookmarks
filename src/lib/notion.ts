@@ -54,8 +54,15 @@ export const notion = new Client({
 
 
 
-// 获取网址链接
-export const getLinks = cache(async () => {
+// 获取网址链接-修改前
+// export const getLinks = cache(async () => {
+//     const databaseId = envConfig.NOTION_LINKS_DB_ID!;
+//     const allLinks = [];
+//     let hasMore = true;
+//     let nextCursor: string | undefined;
+
+// 获取网址链接-修改后
+export const getLinks = async () => {
     const databaseId = envConfig.NOTION_LINKS_DB_ID!;
     const allLinks = [];
     let hasMore = true;
@@ -122,10 +129,18 @@ export const getLinks = cache(async () => {
         console.error('Error fetching links:', error);
         return [];
     }
-});
+//});
+};
 
-// 获取网站配置
-export const getWebsiteConfig = cache(async () => {
+// 获取网站配置-修改前
+// export const getWebsiteConfig = cache(async () => {
+//     try {
+//         const response = await notion.databases.query({
+//             database_id: envConfig.NOTION_WEBSITE_CONFIG_ID!,
+//         });
+
+// 获取网站配置-修改后
+export const getWebsiteConfig = async () => {
     try {
         const response = await notion.databases.query({
             database_id: envConfig.NOTION_WEBSITE_CONFIG_ID!,
@@ -240,4 +255,5 @@ export const getCategories = cache(async () => {
     console.error('获取分类失败:', err);
     return [];
   }
-});
+//});
+};
