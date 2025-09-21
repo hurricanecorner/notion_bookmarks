@@ -7,7 +7,10 @@ import { SimpleTime, AnalogClock, Weather, IPInfo, HotNews } from '@/components/
 import WidgetsContainer from '@/components/layout/WidgetsContainer';
 import React from 'react';
 
-export const revalidate = 43200; // 12小时重新验证一次
+//修改前
+// export const revalidate = 43200; // 12小时重新验证一次
+
+export const revalidate = 3; // 3秒重新验证一次
 
 export default async function HomePage() {
   // 获取数据
