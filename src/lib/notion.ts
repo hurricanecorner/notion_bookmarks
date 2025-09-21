@@ -6,7 +6,7 @@ import {
     FilesPropertyItemObjectResponse
 } from "@notionhq/client/build/src/api-endpoints";
 import { WebsiteConfig } from "@/types/notion";
-import { cache } from "react";
+// import { cache } from "react";
 
 // 定义获取标题文本的辅助函数
 const getTitleText = (titleProperty?: TitlePropertyItemObjectResponse | null): string => {
@@ -129,8 +129,8 @@ export const getLinks = async () => {
         console.error('Error fetching links:', error);
         return [];
     }
-//});
 };
+// });
 
 // 获取网站配置-修改前
 // export const getWebsiteConfig = cache(async () => {
@@ -211,9 +211,13 @@ export const getWebsiteConfig = async () => {
         console.error('获取网站配置失败:', error);
         throw new Error('获取网站配置失败');
     }
-});
+};
+// });
 
-export const getCategories = cache(async () => {
+// export const getCategories = cache(async () => {
+//   const databaseId = envConfig.NOTION_CATEGORIES_DB_ID;
+
+export const getCategories = async () => {
   const databaseId = envConfig.NOTION_CATEGORIES_DB_ID;
   
   if (!databaseId) {
@@ -255,5 +259,6 @@ export const getCategories = cache(async () => {
     console.error('获取分类失败:', err);
     return [];
   }
-//});
 };
+// });
+
